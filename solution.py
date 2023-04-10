@@ -16,6 +16,6 @@ def solution(x_success: int,
         answer=False
     else:
         answer=True
-    print(pval)
+
     return answer 
 
