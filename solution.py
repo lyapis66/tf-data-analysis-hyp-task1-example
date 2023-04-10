@@ -13,9 +13,9 @@ def solution(x_success: int,
     nobs = np.array([x_cnt, y_cnt])
     stat, pval = proportions_ztest(count, nobs)
     if pval<=0.01: 
-        answer=False
-    else:
         answer=True
+    else:
+        answer=False
 
     return answer 
 
