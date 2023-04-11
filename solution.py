@@ -8,11 +8,11 @@ def solution(x_success: int,
              x_cnt: int, 
              y_success: int, 
              y_cnt: int) -> bool:
-    from statsmodels.stats.proportion import proportions_ztest
-    count = np.array([x_success, y_success])
-    nobs = np.array([x_cnt, y_cnt])
-    stat, pval = proportions_ztest(count, nobs)
-    if pval<=0.01: 
+       
+    import scipy.stats as st
+    df = np.array([[x_success, x_cnt - x_success], [y_success, y_cnt - y_success]])
+    res = st.chi2_contingency(df)
+    if res[1]<=0.01: 
         answer=True
     else:
         answer=False
