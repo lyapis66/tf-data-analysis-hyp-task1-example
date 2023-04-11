@@ -11,7 +11,7 @@ def solution(x_success: int,
        
     import scipy.stats as st
     df = np.array([[x_success, x_cnt - x_success], [y_success, y_cnt - y_success]])
-    res = st.chi2_contingency(df)
+    res = st.chi2_contingency(df,correction=True)
     if res[1]<=0.01: 
         answer=True
     else:
